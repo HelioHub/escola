@@ -4,7 +4,7 @@
 
 ## Diagrama de Entidade e Relacionamento 
 
-![## escola](https://github.com/HelioHub/escola/blob/main/BD/DER.png)
+![## escola](https://github.com/HelioHub/escola/blob/main/images/DER.png)
 
 ## DB MySQL
 
