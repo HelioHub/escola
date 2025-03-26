@@ -304,4 +304,33 @@
 	  </build>
 	</project>
 	
+## Configuração do Banco de Dados	
+
+	application.properties:
+		# Datasource configuration
+		quarkus.datasource.db-kind=mysql
+		quarkus.datasource.username=escola
+		quarkus.datasource.password=escola123
+		quarkus.datasource.jdbc.url=jdbc:mysql://mysql:3306/escola?useSSL=false
+
+		# Hibernate configuration
+		quarkus.hibernate-orm.database.generation=update
+		quarkus.hibernate-orm.log.sql=true
+
+		# Keycloak configuration
+		quarkus.oidc.auth-server-url=http://keycloak:8080/realms/escola
+		quarkus.oidc.client-id=escola-api
+		quarkus.oidc.credentials.secret=secret
+		quarkus.oidc.application-type=service
+		quarkus.keycloak.policy-enforcer.enable=true
+		
+## Entidades (Model)
 	
+	# Usuario.java
+	# Aluno.java
+	# Professor.java
+	# Curso.java
+	# Disciplina.java
+	# MatrizCurricular.java
+	# Matricula.java
+
