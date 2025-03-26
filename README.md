@@ -67,15 +67,6 @@
 		FOREIGN KEY (id_curso) REFERENCES curso(id_curso)
 	);
 
-	-- Tabela PROFESSOR_CURSO (relacionamento PROFESSOR x CURSO)
-	CREATE TABLE IF NOT EXISTS professor_curso (
-		id_prof_curso INT AUTO_INCREMENT PRIMARY KEY,
-		id_prof INT,
-		id_curso INT,
-		FOREIGN KEY (id_prof) REFERENCES professor(id_prof),
-		FOREIGN KEY (id_curso) REFERENCES curso(id_curso)
-	);
-
 	-- Tabela USUÁRIO 
 	CREATE TABLE IF NOT EXISTS usuario (
 		id_user INT AUTO_INCREMENT PRIMARY KEY,
@@ -87,9 +78,6 @@
 		FOREIGN KEY (id_relacion) REFERENCES aluno(id_aluno) ON DELETE CASCADE,
 		FOREIGN KEY (id_relacion) REFERENCES professor(id_prof) ON DELETE CASCADE
 	);
-
-	-- Mantendo as tabelas existentes (aluno, curso, professor, matricula, usuario)
-	-- Adicionando as novas estruturas:
 
 	-- Tabela DISCIPLINA (nova)
 	CREATE TABLE IF NOT EXISTS disciplina (
@@ -114,7 +102,6 @@
 
 	-- Removendo a tabela professor_curso (agora o relacionamento é via disciplina)
 	DROP TABLE IF EXISTS professor_curso;
-
 
 	INSERT INTO aluno (nome, email, telefone, data_nasc) 
 	VALUES ('João Silva', 'joao@email.com', '11999999999', '2000-05-15');
@@ -172,3 +159,32 @@
 	JOIN professor p ON d.id_professor = p.id_prof
 	WHERE m.id_curso = 1
 	ORDER BY m.semestre;
+
+## Backend API REST com Quarkus para Gestão Acadêmica
+
+	Solução seguindo os requisitos, utilizando Quarkus, MySQL, Keycloak e Docker. 
+	O projeto estruturado usando Design Patterns e testes unitários.
+	
+	Estrutura do Projeto
+	
+	escola-api/
+	├── src/
+	│   ├── main/
+	│   │   ├── java/com/escola/
+	│   │   │   ├── config/
+	│   │   │   ├── controller/
+	│   │   │   ├── dto/
+	│   │   │   ├── exception/
+	│   │   │   ├── model/
+	│   │   │   ├── repository/
+	│   │   │   ├── service/
+	│   │   │   └── security/
+	│   │   └── resources/
+	│   └── test/
+	├── docker-compose.yml
+	├── Dockerfile
+	└── pom.xml	
+	
+	
+	
+	
